@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>MIDAAS Demo</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <style>
+            body {
+                padding: 10px;
+            }
+            tr, td, th {
+                padding: 0px 5px;
+                border: 1px solid #000;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>MIDAAS Demo</h1>
+        <h2>California Income Quantiles</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Quantile</th>
+                    <th>Income</th>
+                </tr>
+            </thead>
+            <tbody id='incomeData'></tbody>
+        </table>
+
+        <script>
+            // replace DEMO_KEY with your data.gov API key
+            $.getJSON('https://api.commerce.gov/midaas/quantiles?state=CA&api_key=DEMO_KEY',
+                function(data) {
+                    var incomeData = data.overall;
+                    var tbody = document.getElementById('incomeData');
+                
+                    $.each(incomeData, function(quantile, income) {
+                        var tableRow = createTableRow(quantile, income);
+                        tbody.appendChild(tableRow);
+                    });
+            });
+
+            function createTableRow(quantile, income) {
+                var tableRow = document.createElement('tr');
+                var quantileTableData = document.createElement('td');
+                var incomeTableData = document.createElement('td');
+                var quantile = document.createTextNode(quantile);
+                var income = formatIncome(income);
+                income = document.createTextNode(income);
+                
+                quantileTableData.appendChild(quantile);
+                incomeTableData.appendChild(income);
+                tableRow.appendChild(quantileTableData);
+                tableRow.appendChild(incomeTableData);
+
+                return tableRow;
+            }
+
+            function formatIncome(income) {
+                var formattedIncome = '$' + income;
+                return formattedIncome;
+            }
+        </script>
+    </body>
+</html>
