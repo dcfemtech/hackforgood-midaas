@@ -1,0 +1,119 @@
+h1 {
+  font-family: helvetica, arial, sans-serif;
+  text-align: center;
+  /*margin-top: 80px;*/
+}
+
+.midaasviz {
+  font-family: helvetica, arial, sans-serif;
+  margin: 0 auto;
+  font-size: 10px;
+  width: 50%;
+    margin: 0 auto;
+  /*   width: 550px; */
+  /*   height: 300px */
+}
+
+path {
+  fill: #83B0EA;
+}
+
+.domain {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.legend {
+  padding: 5px;
+  font: 10px sans-serif;
+  background: yellow;
+  box-shadow: 2px 2px 1px #888;
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+  padding-bottom: 15px;
+  padding-top: 25px;
+}
+
+#chart {
+  margin-left: -40px;
+  height: 506px;
+}
+
+text {
+  font: 10px sans-serif;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.label {
+  fill: #777;
+}
+
+.year.label {
+  font: 500 196px "Helvetica Neue";
+  fill: #ddd;
+}
+
+.year.label.active {
+  fill: #aaa;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+  cursor: ew-resize;
+}
+
+.gradient {
+    width: 175px;
+    white-space: nowrap;
+    position: absolute;
+    display: inline-block;
+    bottom: 10px;
+    right: 30px;
+    padding-bottom: 15px;
+    padding-top: 25px;
+    text-align:center;
+}
+.gradient .label {
+    position: absolute;
+    left: 0;
+    font-size: 15px;
+    top: 3px;
+}
+.gradient .domain-min {
+    position: absolute;
+    left: 0;
+    font-size: 15px;
+    bottom: 3px;
+}
+.gradient .domain-med {
+    position: absolute;
+    right: 25%;
+    left: 25%;
+    text-align: center;
+    font-size: 15px;
+    bottom: 3px;
+}
+.gradient .domain-max {
+    position: absolute;
+    right: 0;
+    font-size: 15px;
+    bottom: 3px;
+}
+.grad-step {
+    display: inline-block;
+    height: 20px;
+    width: 5%;
+}
